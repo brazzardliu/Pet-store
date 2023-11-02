@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <servlet>
+        <servlet-name>MainFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.MainFormServlet</servlet-class>
+    </servlet>
+    <servlet>
+    <servlet-name>CategoryFormServlet</servlet-name>
+    <servlet-class>csu.web.mypetstore.web.servlet.CategoryFormServlet</servlet-class>
+</servlet>
+    <servlet>
+        <servlet-name>ProductFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.ProductFormServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MainFormServlet</servlet-name>
+        <url-pattern>/mainForm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CategoryFormServlet</servlet-name>
+        <url-pattern>/categoryForm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>ProductFormServlet</servlet-name>
+    <url-pattern>/productForm</url-pattern>
+</servlet-mapping>
 </web-app>
