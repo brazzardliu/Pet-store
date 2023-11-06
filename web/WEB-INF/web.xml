@@ -16,6 +16,14 @@
         <servlet-name>ProductFormServlet</servlet-name>
         <servlet-class>csu.web.mypetstore.web.servlet.ProductFormServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SearchFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.SearchFormServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ItemFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.ItemFormServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>MainFormServlet</servlet-name>
@@ -29,4 +37,15 @@
     <servlet-name>ProductFormServlet</servlet-name>
     <url-pattern>/productForm</url-pattern>
 </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchFormServlet</servlet-name>
+        <url-pattern>/searchForm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ItemFormServlet</servlet-name>
+        <url-pattern>/itemForm</url-pattern>
+    </servlet-mapping>
+
+
+
 </web-app>

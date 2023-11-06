@@ -22,7 +22,7 @@ public class ProductDaoImpl implements ProductDao {
     public List<Product> getProductListByCategory(String categoryId) {
         List<Product> products = new ArrayList<Product>();
         try {
-            Connection connection = DBUtil.getConnection();
+            Connection   connection = DBUtil.getConnection();
             PreparedStatement pStatement = connection
                     .prepareStatement(getProductListByCategoryString);
             pStatement.setString(1, categoryId);
@@ -93,6 +93,7 @@ public class ProductDaoImpl implements ProductDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
 
         return productList;
     }

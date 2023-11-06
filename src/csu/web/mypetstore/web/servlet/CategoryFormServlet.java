@@ -26,4 +26,5 @@ public class CategoryFormServlet extends HttpServlet {
         session.setAttribute("productList",productList);
       req.getRequestDispatcher(CATEGORY_FORM).forward(req,resp);
     }
+
 }
