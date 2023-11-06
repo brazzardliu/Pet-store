@@ -4,9 +4,15 @@
       <root url="jar://D:/Tomcat/lib/servlet-api.jar!/" />
       <root url="jar://D:/Tomcat/lib/jsp-api.jar!/" />
       <root url="file://D:/Tomcat/lib" />
+      <root url="file://D:/Tomcat/lib" />
+      <root url="file://D:/jakarta-taglibs-standard-1.1.2/lib" />
+      <root url="jar://D:/jakarta-taglibs-standard-1.1.2/lib/standard.jar!/" />
+      <root url="jar://D:/jakarta-taglibs-standard-1.1.2/lib/jstl.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
+    <jarDirectory url="file://D:/jakarta-taglibs-standard-1.1.2/lib" recursive="false" />
+    <jarDirectory url="file://D:/Tomcat/lib" recursive="false" />
     <jarDirectory url="file://D:/Tomcat/lib" recursive="false" />
   </library>
 </component>
