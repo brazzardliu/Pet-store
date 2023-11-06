@@ -38,6 +38,14 @@
         <servlet-name>CartFormServlet</servlet-name>
         <servlet-class>csu.web.mypetstore.web.servlet.CartFormServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SearchFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.SearchFormServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ItemFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.ItemFormServlet</servlet-class>
+    </servlet>
 
 
     <servlet-mapping>
@@ -73,6 +81,14 @@
     <servlet-mapping>
         <servlet-name>CartFormServlet</servlet-name>
         <url-pattern>/cartForm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchFormServlet</servlet-name>
+        <url-pattern>/searchForm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ItemFormServlet</servlet-name>
+        <url-pattern>/itemForm</url-pattern>
     </servlet-mapping>
 
 </web-app>
