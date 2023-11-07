@@ -93,8 +93,6 @@ public class ProductDaoImpl implements ProductDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
         return productList;
     }
 }

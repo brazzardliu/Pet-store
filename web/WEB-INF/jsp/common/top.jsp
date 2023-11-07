@@ -26,7 +26,6 @@
             <img align="middle" src="images/separator.gif" />
             <c:if test="${sessionScope.loginAccount == null}">
                 <a href="signonForm">Sign In</a>
-                    <a href="signonForm">Sign OUT</a>
                 <img align="middle" src="images/separator.gif" />
             </c:if>
 
@@ -64,4 +63,3 @@
 </div>
 
 <div id="Content">
-</div>

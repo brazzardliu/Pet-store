@@ -6,7 +6,7 @@
 
 <div id="Catalog">
 
-    <table>
+    <table >
         <tr>
             <th>description</th>
             <th>Product ID</th>

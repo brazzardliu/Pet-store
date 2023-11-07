@@ -22,9 +22,6 @@ public class SearchFormServlet extends HttpServlet {
         CatalogService catalogService = new CatalogService();
         String keyword = req.getParameter("keyword");
         List<Product> productsList = catalogService.searchProductList(keyword);
-        if(keyword.isEmpty()){
-            productsList = null;
-        }
         HttpSession session = req.getSession();
         session.setAttribute("searchproduct",productsList);
         req.getRequestDispatcher(SEARCH_PRODUCTS).forward(req,resp);

@@ -6,9 +6,7 @@
 </div>
 
 <div id="Catalog">
-
     <h2>${sessionScope.category.name}</h2>
-
     <table>
         <tr>
             <th>Product ID</th>
