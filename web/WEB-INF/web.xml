@@ -107,10 +107,12 @@
         <servlet-name>NewOrderFormServlet</servlet-name>
         <url-pattern>/newOrderForm</url-pattern>
     </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>SignOnFormServlet</servlet-name>
         <url-pattern>/signOnForm</url-pattern>
     </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>SignOnServlet</servlet-name>
         <url-pattern>/signOn</url-pattern>

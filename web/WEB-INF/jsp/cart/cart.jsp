@@ -2,14 +2,14 @@
 <%@page isELIgnored="false" %>
 
 
-<a herf="categoryForm">Return to Main Menu</a>
+<a href="mainForm">Return to Main Menu</a>
 
 <div id="Catalog">
 
     <div id="Cart">
 
         <h2>Shopping Cart</h2>
-        <form action="" method="post">
+        <form action="updateCart" method="post">
             <table>
                 <tr>
                     <th><b>Item ID</b></th>
@@ -31,7 +31,7 @@
                 <c:forEach var="cartItem" items="${sessionScope.cart.cartItems}">
                     <tr>
                         <td>
-                            <a herf="itemForm?itemid=${cartItem.item.itemId}">${cartItem.item.itemId}</a>
+                            <a href="itemForm?itemid=${cartItem.item.itemId}">${cartItem.item.itemId}</a>
                         </td>
                         <td>${cartItem.item.product.productId}</td>
                         <td>${cartItem.item.attribute1} ${cartItem.item.attribute2}
@@ -46,7 +46,7 @@
                         <td><fmt:formatNumber value="${cartItem.total}"
                                               pattern="$#,##0.00" /></td>
                         <td>
-                            <a herf="removeCartItem?workingItemId=${cartItem.item.itemId}" class="Button">Remove</a>
+                            <a href="removeCartItem?workingItemId=${cartItem.item.itemId}" class="Button">Remove</a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -60,7 +60,7 @@
             </table>
         </form>
         <c:if test="${sessionScope.cart.numberOfItems > 0}">
-            <a herf="newOrderForm" class="Button">Proceed to Checkout</a>
+            <a href="newOrderForm" class="Button">Proceed to Checkout</a>
         </c:if>
     </div>
 
@@ -74,3 +74,4 @@
 
     <div id="Separator">&nbsp;</div>
 </div>
+<%@ include file="../common/bottom.jsp"%>

@@ -25,7 +25,7 @@
             <a href="cartForm"><img align="middle" name="img_cart" src="images/cart.gif" /></a>
             <img align="middle" src="images/separator.gif" />
             <c:if test="${sessionScope.loginAccount == null}">
-                <a href="signonForm">Sign In</a>
+                <a href="signOnForm">Sign In</a>
                 <img align="middle" src="images/separator.gif" />
             </c:if>
 

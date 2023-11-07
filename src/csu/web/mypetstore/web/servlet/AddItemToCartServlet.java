@@ -17,7 +17,7 @@ public class AddItemToCartServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String workingItemId = req.getParameter("wordkingItemId");
+        String workingItemId = req.getParameter("workingItemId");
 
         HttpSession session = req.getSession();
         Cart cart = (Cart) session.getAttribute("cart");
