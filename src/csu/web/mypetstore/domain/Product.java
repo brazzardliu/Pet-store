@@ -41,7 +41,13 @@ public class Product implements Serializable {
         this.description = description;
     }
 
+    @Override
     public String toString() {
-        return getName();
+        return "Product{" +
+                "productId='" + productId + '\'' +
+                ", categoryId='" + categoryId + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }

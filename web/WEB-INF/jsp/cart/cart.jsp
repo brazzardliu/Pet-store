@@ -2,10 +2,7 @@
 <%@page isELIgnored="false" %>
 
 
-<div id="BackLink"><stripes:link
-        beanclass="org.mybatis.jpetstore.web.actions.CatalogActionBean">
-    Return to Main Menu</stripes:link>
-</div>
+<a herf="categoryForm">Return to Main Menu</a>
 
 <div id="Catalog">
 
@@ -31,7 +28,7 @@
                     </tr>
                 </c:if>
 
-                <c:forEach var="cartItem" items="${actionBean.cart.cartItems}">
+                <c:forEach var="cartItem" items="${sessionScope.cart.cartItems}">
                     <tr>
                         <td>
                             <a herf="itemForm?itemid=${cartItem.item.itemId}">${cartItem.item.itemId}</a>
