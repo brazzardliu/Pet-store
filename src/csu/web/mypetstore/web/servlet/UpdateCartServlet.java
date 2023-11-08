@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.Iterator;
 
 public class UpdateCartServlet extends HttpServlet {
-    private static final String CART_FORM = "/WEB-INF/jsp/cart/cart.jsp";
+    private static final String CART_FORM = "/WEB-INF/jsp/cart/Cart.jsp";
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

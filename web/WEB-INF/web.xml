@@ -60,6 +60,19 @@
         <servlet-name>SignOnServlet</servlet-name>
         <servlet-class>csu.web.mypetstore.web.servlet.SignOnServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>NewOrderServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.NewOrderServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ShippingAddressServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.ShippingAddressServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ShippingFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.ShippingFormServlet</servlet-class>
+    </servlet>
+
 
     <servlet-mapping>
         <servlet-name>MainFormServlet</servlet-name>
@@ -116,6 +129,18 @@
     <servlet-mapping>
         <servlet-name>SignOnServlet</servlet-name>
         <url-pattern>/signOn</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewOrderServlet</servlet-name>
+        <url-pattern>/newOrder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShippingAddressServlet</servlet-name>
+        <url-pattern>/shippingAddress</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShippingFormServlet</servlet-name>
+        <url-pattern>/shippingForm</url-pattern>
     </servlet-mapping>
 
 </web-app>
