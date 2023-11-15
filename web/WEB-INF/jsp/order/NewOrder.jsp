@@ -6,7 +6,7 @@
     </ul>
 
     <div id="BackLink">
-        <a href="main">Return to Main Menu</a>
+        <a href="mainFrom">Return to Main Menu</a>
     </div>
 
     <div id="Catalog">

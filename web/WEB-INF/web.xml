@@ -73,6 +73,11 @@
         <servlet-class>csu.web.mypetstore.web.servlet.ShippingFormServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>ConfirmOrderFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.ConfirmOrderFormServlet</servlet-class>
+    </servlet>
+
 
     <servlet-mapping>
         <servlet-name>MainFormServlet</servlet-name>
@@ -108,14 +113,17 @@
         <servlet-name>CartFormServlet</servlet-name>
         <url-pattern>/cartForm</url-pattern>
     </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>SearchFormServlet</servlet-name>
         <url-pattern>/searchForm</url-pattern>
     </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>ItemFormServlet</servlet-name>
         <url-pattern>/itemForm</url-pattern>
     </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>NewOrderFormServlet</servlet-name>
         <url-pattern>/newOrderForm</url-pattern>
@@ -130,17 +138,25 @@
         <servlet-name>SignOnServlet</servlet-name>
         <url-pattern>/signOn</url-pattern>
     </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>NewOrderServlet</servlet-name>
         <url-pattern>/newOrder</url-pattern>
     </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>ShippingAddressServlet</servlet-name>
         <url-pattern>/shippingAddress</url-pattern>
     </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>ShippingFormServlet</servlet-name>
         <url-pattern>/shippingForm</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ConfirmOrderFormServlet</servlet-name>
+        <url-pattern>/confirmOrderForm</url-pattern>
     </servlet-mapping>
 
 </web-app>

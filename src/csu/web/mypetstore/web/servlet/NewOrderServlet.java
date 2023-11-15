@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class NewOrderServlet extends HttpServlet {
-    private static final String VIEWORDER = "/WEB-INF/jsp/order/ViewOrder.jsp";
+    private static final String VIEWORDER = "/WEB-INF/jsp/order/NewOrder.jsp";
     private static final String ERROR = "/WEB-INF/jsp/common/Error.jsp";
 
     private Order order;
