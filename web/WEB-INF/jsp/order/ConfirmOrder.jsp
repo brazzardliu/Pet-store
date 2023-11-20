@@ -1,7 +1,7 @@
 <%@ include file="../common/top.jsp"%>
 
 <div id="BackLink">
-    <a href="mainForm">Return to Main Menu</a>
+    <a href="/mainForm">Return to Main Menu</a>
 </div>
 
 <div id="Catalog">Please confirm the information below and then press continue...
