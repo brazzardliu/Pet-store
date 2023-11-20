@@ -23,6 +23,7 @@ import java.util.Date;
                 @WebInitParam(name = "neworder", value = "/newOrder"),
                 @WebInitParam(name = "confirm", value = "/confirmOrderForm"),
                 @WebInitParam(name = "main", value = "/mainForm"),
+                @WebInitParam(name = "cart", value = "/cartForm"),
 //                @WebInitParam(name = "signoff", value = "/signOut"),
 //                @WebInitParam(name = "edit", value = "/editAccount"),
                 @WebInitParam(name = "addtocart", value = "/addItemToCart"),
@@ -51,6 +52,7 @@ public class LogFilter implements Filter {
        
         String loginPage = config.getInitParameter("loginPage");
         String main = config.getInitParameter("main");
+        String cart = config.getInitParameter("cart");
        String shipping = config.getInitParameter("shipping");
         String search = config.getInitParameter("search");
         String neworder = config.getInitParameter("neworder");
@@ -82,10 +84,10 @@ public class LogFilter implements Filter {
         if(requestPath.endsWith(loginPage)&&username == "游客")
         {
             log.setInfo(username+ "进入登录界面");
-            log.setValue(value);
-            logService.insertLog(log);
         }
-
+         if(requestPath.endsWith(cart)){
+             log.setInfo(username+"查看购物车");
+         }
             if (requestPath.endsWith(main)) {
                 log.setInfo(username + "游览主界面");
                 System.out.println("浏览");
