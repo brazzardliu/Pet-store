@@ -103,12 +103,12 @@ public class AccountDaoImpl implements AccountDao {
 
     }
 
-    //    public static void main(String[] args) {
-    //        AccountDao accountDao = new AccountDaoImpl();
-    //        Account account = new Account();
-    //        account.setUsername("j2ee");
-    //        account.setPassword("jee");
-    //        Account result = accountDao.getAccountByUsernameAndPassword(account);
-    //        System.out.println("success");
-    //    }
+//        public static void main(String[] args) {
+//            AccountDao accountDao = new AccountDaoImpl();
+//            Account account = new Account();
+//            account.setUsername("j2ee");
+//            account.setPassword("jee");
+//            Account result = accountDao.getAccountByUsernameAndPassword(account);
+//            System.out.println("success");
+//        }
 }
