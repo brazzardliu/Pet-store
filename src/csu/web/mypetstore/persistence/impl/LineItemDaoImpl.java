@@ -19,7 +19,7 @@ public class LineItemDaoImpl implements LineItemDao {
             "WHERE ORDERID = ?";
 
     private static final String insertLineItemString = " INSERT INTO LINEITEM " +
-            "(ORDERID , LINENUM , ITEMID , QUANTITY , UNITPRICE) VALUES (? ,? ,? ,?, )";
+            "(ORDERID , LINENUM , ITEMID , QUANTITY , UNITPRICE) VALUES (? ,? ,? ,?, ?)";
     
     @Override
     public List<LineItem> getLineItemsByOrderId(int orderId) {

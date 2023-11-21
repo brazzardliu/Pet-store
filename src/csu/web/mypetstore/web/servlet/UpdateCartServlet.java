@@ -1,7 +1,9 @@
 package csu.web.mypetstore.web.servlet;
 
+import csu.web.mypetstore.domain.Account;
 import csu.web.mypetstore.domain.Cart;
 import csu.web.mypetstore.domain.CartItem;
+import csu.web.mypetstore.service.CartService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +20,9 @@ public class UpdateCartServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         HttpSession session = req.getSession();
-        Cart cart = (Cart) session.getAttribute("cart");
+        Account account = (Account) session.getAttribute("account");
+        CartService cartService = new CartService();
+        Cart cart = cartService.getCart(account.getUsername());
         Iterator<CartItem> cartItems = cart.getAllCartItems();
 
 
@@ -28,14 +32,14 @@ public class UpdateCartServlet extends HttpServlet {
             try {
                 String quantityString = req.getParameter(itemId);
                 int quantity = Integer.parseInt(quantityString);
-
-                cart.setQuantityByItemId(itemId, quantity);
+                cartService.updateQuantity(itemId , quantity , account.getUsername());
                 if (quantity < 1) {
                     cartItems.remove();
                 }
             } catch (Exception e) {
                 //ignore parse exceptions on purpose
             }
+            session.setAttribute("cart" , cart);
         }
 
         req.getRequestDispatcher(CART_FORM).forward(req , resp);

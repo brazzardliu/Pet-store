@@ -1,7 +1,9 @@
 package csu.web.mypetstore.web.servlet;
 
+import csu.web.mypetstore.domain.Account;
 import csu.web.mypetstore.domain.Cart;
 import csu.web.mypetstore.domain.Item;
+import csu.web.mypetstore.service.CartService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,18 +21,17 @@ public class RemoveCartItemServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         HttpSession session = req.getSession();
-        Cart cart = (Cart) session.getAttribute("cart");
-
+        Account account = (Account) session.getAttribute("account");
+//        Cart cart = (Cart) session.getAttribute("cart");
+        CartService cartService = new CartService();
+        Cart cart = (Cart)cartService.getCart(account.getUsername());
         String workingItemId = req.getParameter("workingItemId");
+        cartService.removeItemFromCart(cart , workingItemId , account.getUsername());
+        Cart cart1 = (Cart)cartService.getCart(account.getUsername());
+        session.setAttribute("cart" , cart1);
 
-        Item item = cart.removeItemById(workingItemId);
 
-        if (item == null) {
-            session.setAttribute("errorMsg" , "Attempted to remove null CartItem from Cart.");
-            req.getRequestDispatcher(ERROR_FORM).forward(req , resp);
-
-        } else {
             req.getRequestDispatcher(CART_FORM).forward(req , resp);
-        }
+
     }
 }

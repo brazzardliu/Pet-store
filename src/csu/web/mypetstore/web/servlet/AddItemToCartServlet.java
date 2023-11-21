@@ -1,7 +1,9 @@
 package csu.web.mypetstore.web.servlet;
 
+import csu.web.mypetstore.domain.Account;
 import csu.web.mypetstore.domain.Cart;
 import csu.web.mypetstore.domain.Item;
+import csu.web.mypetstore.service.CartService;
 import csu.web.mypetstore.service.CatalogService;
 
 import javax.servlet.ServletException;
@@ -15,32 +17,45 @@ public class AddItemToCartServlet extends HttpServlet {
 
     private static final String CART_FORM = "/WEB-INF/jsp/cart/Cart.jsp";
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String workingItemId = req.getParameter("workingItemId");
+    private String workingItemId;
+    private Cart cart;             //购物车
 
-        HttpSession session = req.getSession();
-        Cart cart = (Cart) session.getAttribute("cart");
+    //3.是否需要调用业务逻辑层
+    private CatalogService catalogService;
 
-        if(cart == null){
-            cart = new Cart();
-        }
-
-
-        if (cart.containsItemId(workingItemId)) {
-            cart.incrementQuantityByItemId(workingItemId);
-        } else {
-            CatalogService catalogService = new CatalogService();
-            // isInStock is a "real-time" property that must be updated
-            // every time an item is added to the cart, even if other
-            // item details are cached.
-            boolean isInStock = catalogService.isItemInStock(workingItemId);
-            Item item = catalogService.getItem(workingItemId);
-            cart.addItem(item, isInStock);
-
-        }
-
-        session.setAttribute("cart" , cart);
-        req.getRequestDispatcher(CART_FORM).forward(req , resp);
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doGet(req, resp);
     }
-}
+
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        workingItemId = req.getParameter("workingItemId");
+
+        Account account;
+        //从数据库中，获取购物车
+        HttpSession session = req.getSession();
+        CartService cartService = new CartService();
+        account = (Account) session.getAttribute("account");
+
+
+        if (account != null) {
+            if (cartService.getCart(account.getUsername()) == null) {
+                //第一次使用购物车
+                cart = new Cart();
+
+            }
+            cart = cartService.getCart(account.getUsername());
+            cart = cartService.addItemToCart(cart , workingItemId , account.getUsername());
+
+            session.setAttribute("cart" , cart);
+
+
+
+                HttpServletRequest httpRequest = (HttpServletRequest) req;
+                String strBackUrl = "http://" + req.getServerName() + ":" + req.getServerPort()
+                        + httpRequest.getContextPath() + httpRequest.getServletPath() + "?" + (httpRequest.getQueryString());
+
+
+                req.getRequestDispatcher(CART_FORM).forward(req, resp);
+            }
+        }
+    }

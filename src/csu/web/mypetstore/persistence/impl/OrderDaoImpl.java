@@ -5,6 +5,7 @@ import csu.web.mypetstore.persistence.DBUtil;
 import csu.web.mypetstore.persistence.OrderDao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -189,7 +190,8 @@ public class OrderDaoImpl implements OrderDao {
             PreparedStatement preparedStatement = connection.prepareStatement(insertOrderString);
             preparedStatement.setInt(1, order.getOrderId() );
             preparedStatement.setString(2, order.getUsername());
-            preparedStatement.setDate(3, (java.sql.Date)order.getOrderDate());
+            java.sql.Date date = new java.sql.Date(order.getOrderDate().getTime());
+            preparedStatement.setDate(3, date);
             preparedStatement.setString(4, order.getShipAddress1());
             preparedStatement.setString(5, order.getShipAddress2());
             preparedStatement.setString(6, order.getShipCity());
@@ -228,9 +230,9 @@ public class OrderDaoImpl implements OrderDao {
             PreparedStatement preparedStatement = connection.prepareStatement(insertOrderStatusString);
             preparedStatement.setInt(1, order.getOrderId());
             preparedStatement.setInt(2, order.getOrderId());
-            preparedStatement.setDate(3, (java.sql.Date)order.getOrderDate());
+            java.sql.Date date = new java.sql.Date(order.getOrderDate().getTime());
+            preparedStatement.setDate(3, date);
             preparedStatement.setString(4, order.getStatus());
-
             preparedStatement.executeUpdate();
             DBUtil.closePreparedStatement(preparedStatement);
             DBUtil.closeConnection(connection);
