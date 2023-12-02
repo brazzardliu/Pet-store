@@ -3,7 +3,6 @@ package csu.web.mypetstore.service;
 import csu.web.mypetstore.domain.*;
 import csu.web.mypetstore.persistence.*;
 import csu.web.mypetstore.persistence.impl.*;
-import org.apache.catalina.ha.session.DeltaSession;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -83,9 +82,14 @@ public class CartService {
         cartDao.removeCartItemById(userId , itemId);
         return cart;
     }
-    public Cart addItemToCart(Cart cart , String itemId , String userId){
+    public Cart addItemToCart(String itemId , String userId){
+        Cart cart;
+        if (cartDao.getCart(userId) == null){
+            cart = new Cart();
+            cart.setUserId(userId);
+        }else cart = cartDao.getCart(userId);
         Item item = itemDao.getItem(itemId);
-        cart = cart.addItem(item , true , userId , cart);
+        cart.addItem(item , true , userId);
         cartDao.removeCartItem(userId);
         cartDao.insertCartItem(cart);
         return cart;

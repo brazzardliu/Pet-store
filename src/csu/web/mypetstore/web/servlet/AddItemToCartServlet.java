@@ -44,7 +44,7 @@ public class AddItemToCartServlet extends HttpServlet {
 
             }
             cart = cartService.getCart(account.getUsername());
-            cart = cartService.addItemToCart(cart , workingItemId , account.getUsername());
+            cart = cartService.addItemToCart(workingItemId , account.getUsername());
 
             session.setAttribute("cart" , cart);
 

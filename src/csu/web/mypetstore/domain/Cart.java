@@ -41,7 +41,7 @@ public class Cart implements Serializable {
         return itemMap.containsKey(itemId);
     }
 
-    public Cart addItem(Item item, boolean isInStock , String userId , Cart cart) {
+    public void addItem(Item item, boolean isInStock , String userId) {
         CartItem cartItem = (CartItem) itemMap.get(item.getItemId());
 
         if (cartItem == null) {
@@ -59,7 +59,7 @@ public class Cart implements Serializable {
             itemList.add(cartItem);
         }
         cartItem.incrementQuantity();
-        return cart;
+
     }
 
     public Item removeItemById(String itemId , Cart cart) {
