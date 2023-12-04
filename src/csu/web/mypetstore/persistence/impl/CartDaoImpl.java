@@ -60,22 +60,22 @@ public class CartDaoImpl implements CartDao {
 
 
     @Override
-    public void insertCartItem(Cart cart) {
+    public void insertCartItem(Cart cart , int i) {
         try{
             Connection connection = DBUtil.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(insertCartItemString);
-            for(int i = 0; i < cart.getNumberOfItems(); i ++){
+            if (cart.getCartItemList().get(i).getQuantity() != 0){
                 preparedStatement.setString(1, cart.getCartItemList().get(i).getUserId());
                 preparedStatement.setInt(2, cart.getCartItemList().get(i).getLineNumber());
                 preparedStatement.setString(3, cart.getCartItemList().get(i).getItemId());
-                preparedStatement.setString(4, cart.getCartItemList().get(i).getItem().getProductId());
+                preparedStatement.setString(4, cart.getCartItemList().get(i).getProductId());
                 preparedStatement.setString(5, cart.getCartItemList().get(i).getAttr());
                 preparedStatement.setBoolean(6, cart.getCartItemList().get(i).isInStock());
                 preparedStatement.setInt(7, cart.getCartItemList().get(i).getQuantity());
                 preparedStatement.setBigDecimal(8, cart.getCartItemList().get(i).getListPrice());
                 preparedStatement.setBigDecimal(9, cart.getCartItemList().get(i).getUnitPrice());
-
             }
+
 
             preparedStatement.executeUpdate();
             DBUtil.closeConnection(connection);
@@ -102,7 +102,8 @@ public class CartDaoImpl implements CartDao {
 
     @Override
     public Cart getCart(String userId) {
-        Cart cart = null;
+        Cart cart = new Cart();
+        List<CartItem> itemList = new ArrayList<>();
         try{
             Connection connection = DBUtil.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(getCartItemByUserIdString);
@@ -121,7 +122,10 @@ public class CartDaoImpl implements CartDao {
                 cartItem.setListPrice(resultSet.getBigDecimal(8));
                 cartItem.setUnitPrice(resultSet.getBigDecimal(9));
 
+                itemList.add(cartItem);
+
             }
+            cart.setCartItemList(itemList);
             DBUtil.closeResultSet(resultSet);
             DBUtil.closePreparedStatement(preparedStatement);
             DBUtil.closeConnection(connection);

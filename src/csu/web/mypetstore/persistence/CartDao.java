@@ -10,7 +10,7 @@ import java.util.List;
 public interface CartDao {
     List<CartItem> getCartItemByUserId(String userId);
 
-    void insertCartItem(Cart cart);
+    void insertCartItem(Cart cart , int i);
     void removeCartItem(String userId);
     void removeCartItemById(String userId , String itemId);
      void updateQuantity(String itemId , int quantity , String userId);

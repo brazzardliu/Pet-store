@@ -22,25 +22,25 @@ public class CartService {
         sequenceDao = new SequenceDaoImpl();
     }
 
-    public void insertCart(Cart cart , String userId) {
-        cart.setUserId(userId);
-        for (int i = 0; i < cart.getNumberOfItems(); i++) {
-            CartItem cartItem = (CartItem) cart.getCartItemList().get(i);
-            String itemId = cartItem.getItemId();
-            Integer increment = cartItem.getQuantity();
-//            Map<String, Object> param = new HashMap<String, Object>(2);
-//            param.put("itemId", itemId);
-//            param.put("increment", increment);
-            itemDao.updateInventoryQuantity(itemId , increment);
-        }
-
-        cartDao.insertCartItem(cart);
-        for (int i = 0; i < cart.getNumberOfItems(); i++) {
-            CartItem cartItem = (CartItem) cart.getCartItemList().get(i);
-            cartItem.setUserId(cart.getUserId());
-            cartDao.insertCartItem(cart);
-        }
-    }
+//    public void insertCart(Cart cart , String userId) {
+//        cart.setUserId(userId);
+//        for (int i = 0; i < cart.getNumberOfItems(); i++) {
+//            CartItem cartItem = (CartItem) cart.getCartItemList().get(i);
+//            String itemId = cartItem.getItemId();
+//            Integer increment = cartItem.getQuantity();
+////            Map<String, Object> param = new HashMap<String, Object>(2);
+////            param.put("itemId", itemId);
+////            param.put("increment", increment);
+//            itemDao.updateInventoryQuantity(itemId , increment);
+//        }
+//
+//        cartDao.insertCartItem(cart);
+//        for (int i = 0; i < cart.getNumberOfItems(); i++) {
+//            CartItem cartItem = (CartItem) cart.getCartItemList().get(i);
+//            cartItem.setUserId(cart.getUserId());
+//            cartDao.insertCartItem(cart);
+//        }
+//    }
 
     public Cart getCart(String userId) {
         Cart cart = new Cart();
@@ -54,7 +54,7 @@ public class CartService {
             CartItem cartItem = (CartItem) cart.getCartItemList().get(i);
             Item item = itemDao.getItem(cartItem.getItemId());
             item.setQuantity(itemDao.getInventoryQuantity(cartItem.getItemId()));
-            cart.getItemList().get(i).setItem(item);
+            cart.getCartItemList().get(i).setItem(item);
 
         }
         cart.setUserId(userId);
@@ -79,25 +79,29 @@ public class CartService {
 
     public Cart removeItemFromCart(Cart cart , String itemId , String userId){
         cart.removeItemById(itemId , cart);
-        cartDao.removeCartItemById(userId , itemId);
+        cartDao.removeCartItem(userId);
+        for (int i = 0 ; i < cart.getCartItemList().size() ; i++){
+            cartDao.insertCartItem(cart , i);
+        }
         return cart;
     }
-    public Cart addItemToCart(String itemId , String userId){
-        Cart cart;
-        if (cartDao.getCart(userId) == null){
-            cart = new Cart();
-            cart.setUserId(userId);
-        }else cart = cartDao.getCart(userId);
+    public Cart addItemToCart(Cart cart , String itemId , String userId){
         Item item = itemDao.getItem(itemId);
         cart.addItem(item , true , userId);
         cartDao.removeCartItem(userId);
-        cartDao.insertCartItem(cart);
+
+        for (int i = 0 ; i < cart.getCartItemList().size() ; i++){
+            cartDao.insertCartItem(cart , i);
+        }
         return cart;
     }
 
     public void updateQuantity(String itemId , int quantity , String userId){
         Cart cart = cartDao.getCart(userId);
-        cart.setQuantityByItemId(itemId , quantity , cart);
-        cartDao.updateQuantity(itemId , quantity , userId);
+        cart.setQuantityByItemId(itemId , quantity);
+        cartDao.removeCartItem(userId);
+        for (int i  = 0 ; i < cart.getCartItemList().size() ; i ++){
+            cartDao.insertCartItem(cart , i);
+        }
     }
 }

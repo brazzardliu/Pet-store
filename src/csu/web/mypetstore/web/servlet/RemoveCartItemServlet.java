@@ -26,7 +26,13 @@ public class RemoveCartItemServlet extends HttpServlet {
         CartService cartService = new CartService();
         Cart cart = (Cart)cartService.getCart(account.getUsername());
         String workingItemId = req.getParameter("workingItemId");
+        for (int i = 0 ; i < cart.getCartItemList().size() ; i++){
+            System.out.println(i + " " + cart.getCartItemList().get(i).toString());
+        }
         cartService.removeItemFromCart(cart , workingItemId , account.getUsername());
+        for (int i = 0 ; i < cart.getCartItemList().size() ; i++){
+            System.out.println( i + " 222 " + cart.getCartItemList().get(i).toString());
+        }
         Cart cart1 = (Cart)cartService.getCart(account.getUsername());
         session.setAttribute("cart" , cart1);
 
