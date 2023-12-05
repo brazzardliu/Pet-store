@@ -36,12 +36,13 @@ public class UpdateCartServlet extends HttpServlet {
                 if (quantity < 1) {
                     cartItems.remove();
                 }
-                cart = cartService.getCart(account.getUsername());
             } catch (Exception e) {
                 //ignore parse exceptions on purpose
             }
-            session.setAttribute("cart" , cart);
+
         }
+        cart = cartService.getCart(account.getUsername());
+        session.setAttribute("cart" , cart);
 
         req.getRequestDispatcher(CART_FORM).forward(req , resp);
     }

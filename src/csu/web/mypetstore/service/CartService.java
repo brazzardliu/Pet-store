@@ -77,6 +77,10 @@ public class CartService {
         return sequence.getNextId();
     }
 
+    public void removeCart(String username){
+        cartDao.removeCartItem(username);
+    }
+
     public Cart removeItemFromCart(Cart cart , String itemId , String userId){
         cart.removeItemById(itemId , cart);
         cartDao.removeCartItem(userId);
