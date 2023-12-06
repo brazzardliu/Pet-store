@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="commons-io-2.15">
+    <CLASSES>
+      <root url="file://$USER_HOME$/Downloads/commons-io-2.15.1" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$USER_HOME$/Downloads/commons-io-2.15.1" />
+    </SOURCES>
+    <jarDirectory url="file://$USER_HOME$/Downloads/commons-io-2.15.1" recursive="false" />
+    <jarDirectory url="file://$USER_HOME$/Downloads/commons-io-2.15.1" recursive="false" type="SOURCES" />
+  </library>
+</component>

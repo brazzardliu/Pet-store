@@ -37,15 +37,18 @@ public class SignOnServlet extends HttpServlet {
             if(loginAccount == null){
                 this.msg = "用户名或密码错误";
                 req.getRequestDispatcher(SIGN_ON_FORM).forward(req,resp);
+                System.out.println("222");
             }else {
                 loginAccount.setPassword(null);
                 HttpSession session = req.getSession();
                 session.setAttribute("account" , loginAccount);
+                System.out.println("333");
 
                 if(loginAccount.isListOption()){
                     CatalogService catalogService = new CatalogService();
                     List<Product> myList = catalogService.getProductListByCategory(loginAccount.getFavouriteCategoryId());
                     session.setAttribute("myList", myList);
+                    System.out.println("444");
                 }
 
                 resp.sendRedirect("mainForm");

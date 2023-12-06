@@ -30,6 +30,7 @@ import java.util.Date;
                 @WebInitParam(name = "remove", value = "/removeCartItem"),
                 @WebInitParam(name = "search", value = "/searchForm")
         })
+
 public class LogFilter implements Filter {
      private String username;
     private static final String SIGN_ON_FORM = "/WEB-INF/jsp/account/signon.jsp";
