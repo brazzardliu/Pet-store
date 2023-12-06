@@ -2,6 +2,7 @@ package csu.web.mypetstore.web.servlet;
 
 import csu.web.mypetstore.domain.Account;
 import csu.web.mypetstore.domain.Product;
+import csu.web.mypetstore.persistence.DBUtil;
 import csu.web.mypetstore.service.AccountService;
 import csu.web.mypetstore.service.CatalogService;
 
@@ -76,7 +77,7 @@ public class InformationServlet extends HttpServlet {
             req.getRequestDispatcher(Information_Form).forward(req, resp);
         } else {
             try {
-                Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mypetstore", "root", "DENGdeng1010");
+                Connection connection = DBUtil.getConnection();
 
                 String insertQuery = "INSERT INTO account (userid, email, firstname, lastName, status, addr1, addr2, city, state, zip, country, phone) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
