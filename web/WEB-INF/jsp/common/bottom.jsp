@@ -11,5 +11,7 @@
 
     </div>
 </div>
+<script src="js/productAuto.js"></script>
+<script src="js/productShow.js"></script>
 </body>
     </html>
