@@ -3,4 +3,202 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <servlet>
+        <servlet-name>MainFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.MainFormServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>CategoryFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.CategoryFormServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ProductFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.ProductFormServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>AddItemToCartServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.AddItemToCartServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>UpdateCartServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.UpdateCartServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>RemoveCartItemServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.RemoveCartItemServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>CartFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.CartFormServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>SearchFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.SearchFormServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ItemFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.ItemFormServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>NewOrderFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.NewOrderFormServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SignOnFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.SignOnFormServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SignOnServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.SignOnServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NewOrderServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.NewOrderServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ShippingAddressServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.ShippingAddressServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ShippingFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.ShippingFormServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegisterFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.RegisterFormServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.RegisterServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InformationFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.InformationFormServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InformationServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.InformationServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ValidateCodeServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.ValidateCodeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConfirmOrderFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.ConfirmOrderFormServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProductAutoCompleteServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.ProductAutoCompleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MainFormServlet</servlet-name>
+        <url-pattern>/mainForm</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CategoryFormServlet</servlet-name>
+        <url-pattern>/categoryForm</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ProductFormServlet</servlet-name>
+        <url-pattern>/productForm</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AddItemToCartServlet</servlet-name>
+        <url-pattern>/addItemToCart</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UpdateCartServlet</servlet-name>
+        <url-pattern>/updateCart</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>RemoveCartItemServlet</servlet-name>
+        <url-pattern>/removeCartItem</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>CartFormServlet</servlet-name>
+        <url-pattern>/cartForm</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SearchFormServlet</servlet-name>
+        <url-pattern>/searchForm</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ItemFormServlet</servlet-name>
+        <url-pattern>/itemForm</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>NewOrderFormServlet</servlet-name>
+        <url-pattern>/newOrderForm</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SignOnFormServlet</servlet-name>
+        <url-pattern>/signOnForm</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SignOnServlet</servlet-name>
+        <url-pattern>/signOn</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>NewOrderServlet</servlet-name>
+        <url-pattern>/newOrder</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ShippingAddressServlet</servlet-name>
+        <url-pattern>/shippingAddress</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ShippingFormServlet</servlet-name>
+        <url-pattern>/shippingForm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterFormServlet</servlet-name>
+        <url-pattern>/registerForm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InformationFormServlet</servlet-name>
+        <url-pattern>/informationForm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InformationServlet</servlet-name>
+        <url-pattern>/information</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ValidateCodeServlet</servlet-name>
+        <url-pattern>/validateCode</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConfirmOrderFormServlet</servlet-name>
+        <url-pattern>/confirmOrderForm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProductAutoCompleteServlet</servlet-name>
+        <url-pattern>/productAuto</url-pattern>
+    </servlet-mapping>
 </web-app>
