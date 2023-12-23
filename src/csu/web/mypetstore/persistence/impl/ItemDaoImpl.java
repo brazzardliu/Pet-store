@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.Map;
 
 public class ItemDaoImpl implements ItemDao {
-
     private static final String getItemListByProductString = "SELECT I.ITEMID,LISTPRICE,UNITCOST,SUPPLIER AS supplierId,I.PRODUCTID AS productId,NAME AS productName,DESCN AS productDescription,CATEGORY AS categoryId,STATUS,ATTR1 AS attribute1,ATTR2 AS attribute2,ATTR3 AS attribute3,ATTR4 AS attribute4,ATTR5 AS attribute5 FROM ITEM I, PRODUCT P WHERE P.PRODUCTID = I.PRODUCTID AND I.PRODUCTID = ?";
 
     private static final String getItemString = "select I.ITEMID,LISTPRICE,UNITCOST,SUPPLIER AS supplierId,I.PRODUCTID AS productId,NAME AS productName,DESCN AS productDescription,CATEGORY AS CategoryId,STATUS,ATTR1 AS attribute1,ATTR2 AS attribute2,ATTR3 AS attribute3,ATTR4 AS attribute4,ATTR5 AS attribute5,QTY AS quantity from ITEM I, INVENTORY V, PRODUCT P where P.PRODUCTID = I.PRODUCTID and I.ITEMID = V.ITEMID and I.ITEMID=?";
@@ -23,14 +22,14 @@ public class ItemDaoImpl implements ItemDao {
     private static final String updateInventoryQuantityString = "UPDATE INVENTORY SET QTY = QTY - ? WHERE ITEMID = ?";
 
     @Override
-    public void updateInventoryQuantity(Map<String, Object> param) {
+    public void updateInventoryQuantity(String itemId , Integer increment) {
         try {
             Connection connection = DBUtil.getConnection();
             PreparedStatement pStatement = connection
                     .prepareStatement(updateInventoryQuantityString);
-            String itemId = param.keySet().iterator().next();
-            Integer increment = (Integer) param.get(itemId);
-            pStatement.setInt(1, increment.intValue());
+//            String itemId = param.keySet().iterator().next();
+//            Integer increment = (Integer) param.get(itemId);
+            pStatement.setInt(1, increment);
             pStatement.setString(2, itemId);
             pStatement.executeUpdate();
             DBUtil.closePreparedStatement(pStatement);
@@ -138,4 +137,6 @@ public class ItemDaoImpl implements ItemDao {
 
         return item;
     }
+
+
 }

@@ -2,6 +2,8 @@ package csu.web.mypetstore.web.servlet;
 
 import csu.web.mypetstore.domain.Account;
 import csu.web.mypetstore.domain.Order;
+import csu.web.mypetstore.persistence.OrderDao;
+import csu.web.mypetstore.persistence.impl.OrderDaoImpl;
 import csu.web.mypetstore.service.OrderService;
 
 import javax.servlet.ServletException;
@@ -26,6 +28,8 @@ public class ConfirmOrderFormServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         shippingAddressRequired = request.getParameter("shippingAddressRequired");
         order = new Order();
+        orderService = new OrderService();
+
 
         HttpSession session = request.getSession();
         order = (Order)session.getAttribute("order");
@@ -53,6 +57,7 @@ public class ConfirmOrderFormServlet extends HttpServlet {
 
             request.getRequestDispatcher(SHIPPINGFORM).forward(request, response);
         }
+
 
     }
 }

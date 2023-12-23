@@ -3,6 +3,7 @@ package csu.web.mypetstore.web.servlet;
 import csu.web.mypetstore.domain.Account;
 import csu.web.mypetstore.domain.Cart;
 import csu.web.mypetstore.domain.Order;
+import csu.web.mypetstore.service.CartService;
 import csu.web.mypetstore.service.OrderService;
 
 import javax.servlet.ServletException;
@@ -28,20 +29,21 @@ public class NewOrderServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         order = (Order) session.getAttribute("order");
-        cart = (Cart) session.getAttribute("cart");
+
+        CartService cartService = new CartService();
+        Account account = (Account) session.getAttribute("account");
+
 
         if (order != null) {
             orderService = new OrderService();
             orderService.insertOrder(order);
             session.setAttribute("order", order);
             //清空购物车
-            cart = null;
-            session.setAttribute("cart", cart);
+            cartService.removeCart(account.getUsername());
 
             session.setAttribute("message", "Thank you, your order has been submitted.");
 
-            //HttpSession session = request.getSession();
-            Account account = (Account)session.getAttribute("account");
+
 
             if(account != null){
                 HttpServletRequest httpRequest= request;

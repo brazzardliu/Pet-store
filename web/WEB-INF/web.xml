@@ -74,7 +74,26 @@
         <servlet-name>ShippingFormServlet</servlet-name>
         <servlet-class>csu.web.mypetstore.web.servlet.ShippingFormServlet</servlet-class>
     </servlet>
-
+    <servlet>
+        <servlet-name>RegisterFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.RegisterFormServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.RegisterServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InformationFormServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.InformationFormServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InformationServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.InformationServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ValidateCodeServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.ValidateCodeServlet</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>ConfirmOrderFormServlet</servlet-name>
         <servlet-class>csu.web.mypetstore.web.servlet.ConfirmOrderFormServlet</servlet-class>
@@ -87,6 +106,7 @@
         <servlet-name>ProductShowServlet</servlet-name>
         <servlet-class>csu.web.mypetstore.web.servlet.ProductShowServlet</servlet-class>
     </servlet>
+
 
 
     <servlet-mapping>
@@ -163,7 +183,26 @@
         <servlet-name>ShippingFormServlet</servlet-name>
         <url-pattern>/shippingForm</url-pattern>
     </servlet-mapping>
-
+    <servlet-mapping>
+        <servlet-name>RegisterFormServlet</servlet-name>
+        <url-pattern>/registerForm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InformationFormServlet</servlet-name>
+        <url-pattern>/informationForm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InformationServlet</servlet-name>
+        <url-pattern>/information</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ValidateCodeServlet</servlet-name>
+        <url-pattern>/validateCode</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ConfirmOrderFormServlet</servlet-name>
         <url-pattern>/confirmOrderForm</url-pattern>

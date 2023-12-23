@@ -36,6 +36,7 @@ public class SignOnServlet extends HttpServlet {
             Account loginAccount = accountService.getAccount(username, password);
             if(loginAccount == null){
                 this.msg = "用户名或密码错误";
+                req.setAttribute("signOnMsg", this.msg);
                 req.getRequestDispatcher(SIGN_ON_FORM).forward(req,resp);
             }else {
                 loginAccount.setPassword(null);

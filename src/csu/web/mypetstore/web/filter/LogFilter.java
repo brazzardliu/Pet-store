@@ -9,7 +9,6 @@ import csu.web.mypetstore.service.LogService;
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.annotation.WebInitParam;
-import javax.servlet.http.HttpFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -32,6 +31,7 @@ import java.util.Date;
                 @WebInitParam(name = "remove", value = "/removeCartItem"),
                 @WebInitParam(name = "search", value = "/searchForm")
         })
+
 public class LogFilter implements Filter {
      private String username;
     private static final String SIGN_ON_FORM = "/WEB-INF/jsp/account/signon.jsp";
