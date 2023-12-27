@@ -39,7 +39,9 @@
                                 ${cartItem.item.attribute5} ${cartItem.item.product.name}</td>
                         <td>${cartItem.inStock}</td>
                         <td>
-                            <input type="text" name="${cartItem.item.itemId}" value="${cartItem.quantity}">
+                            <input type="text" id="quantity" onblur="updateCart();" name="${cartItem.item.itemId}" value="${cartItem.quantity}">
+                            <div id="cartMsg"></div>
+                            <script type="text/javascript" src="${pageContext.request.contextPath }/js/updateCart.js"></script>
                         </td>
                         <td><fmt:formatNumber value="${cartItem.item.listPrice}"
                                               pattern="$#,##0.00" /></td>
@@ -49,6 +51,7 @@
                             <a href="removeCartItem?workingItemId=${cartItem.item.itemId}" class="Button">Remove</a>
                         </td>
                     </tr>
+                    <script src="js/cartChange.js"></script>
                 </c:forEach>
                 <tr>
                     <td colspan="7">
