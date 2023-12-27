@@ -10,6 +10,9 @@
       <root url="jar://$PROJECT_DIR$/lib/javax.annotation.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/javax.resource.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/javax.jms.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../tool/fastjson-1.2.83.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../tool/jakarta-taglibs-standard-1.1.2/lib/jstl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../tool/jakarta-taglibs-standard-1.1.2/lib/standard.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

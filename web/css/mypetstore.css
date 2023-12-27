@@ -5,6 +5,7 @@ body {
     font-size: 2ex;
     color: #333;
     background-color: #444;
+    width: 1080px;
 }
 
 pre {
@@ -320,4 +321,45 @@ body>#Banner {
     float: left;
     background-color:#ccc;
     text-align:left;
+}
+#ProductAutoComplete{
+    background:#cccccc;
+    position: relative;
+    top: -30px;
+    left: 84px;
+    width: 128px;
+    display: none;
+}
+#productAutoList{
+    margin: 0;
+    padding: 0;
+    border: 1px solid #aaa;
+}
+.productAutoItem{
+    list-style: none;
+    height: 20px;
+    line-height: 20px;
+    font-size: 10px;
+    text-align: left;
+    text-align: left;
+    padding-left: 5px;
+    margin-top: 3px;
+    border-bottom: 1px solid #666;
+    color: #005121;
+    cursor: pointer;
+}
+#mytitle {
+    width: 130px;
+    height: 80px;
+    position: absolute;
+    color: #000;
+    max-width: 160px;
+    font-size: 14px;
+    padding: 4px;
+    border: solid 1px #ced5d3;
+    border-radius:10px !important;
+    text-align: center;
+    line-height: 30px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }

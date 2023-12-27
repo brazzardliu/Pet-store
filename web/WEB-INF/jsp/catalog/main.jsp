@@ -22,7 +22,9 @@
    </div>
 
    <div id="MainImage">
-      <div id="MainImageContent">
+      <div id="MainImageContent" >
+         <div id="mytitle" style="position: absolute;">
+      </div>
          <map name="estoremap">
             <area alt="Birds" coords="72,2,280,250"
                   href="categoryForm?categoryId=BIRDS" shape="RECT" />

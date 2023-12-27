@@ -22,6 +22,7 @@ import java.util.Date;
                 @WebInitParam(name = "neworder", value = "/newOrder"),
                 @WebInitParam(name = "confirm", value = "/confirmOrderForm"),
                 @WebInitParam(name = "main", value = "/mainForm"),
+                @WebInitParam(name = "cart", value = "/cartForm"),
 //                @WebInitParam(name = "signoff", value = "/signOut"),
 //                @WebInitParam(name = "edit", value = "/editAccount"),
                 @WebInitParam(name = "addtocart", value = "/addItemToCart"),
@@ -47,10 +48,10 @@ public class LogFilter implements Filter {
     public void destroy() {
     }
     public void doFilter(ServletRequest Request, ServletResponse Response, FilterChain filterChain) throws IOException, ServletException {
-        System.out.println("filter coming");
-       
         String loginPage = config.getInitParameter("loginPage");
+        String index = config.getInitParameter("index");
         String main = config.getInitParameter("main");
+        String cart = config.getInitParameter("cart");
        String shipping = config.getInitParameter("shipping");
         String search = config.getInitParameter("search");
         String neworder = config.getInitParameter("neworder");
@@ -74,18 +75,17 @@ public class LogFilter implements Filter {
             LogService logService = new LogService();
             Log log = new Log();
             String value = "http://" + req.getServerName() + ":" + req.getServerPort() + req.getContextPath() + req.getServletPath() + req.getQueryString();
-           username = "游客";
-        if(account != null){
-            username = account.getUsername();
-        }
-        log.setUsername(username);
-        if(requestPath.endsWith(loginPage)&&username == "游客")
-        {
-            log.setInfo(username+ "进入登录界面");
-            log.setValue(value);
-            logService.insertLog(log);
-        }
-
+            username = "游客";
+            if (account != null) {
+                username = account.getUsername();
+            }
+            log.setUsername(username);
+            if (requestPath.endsWith(loginPage) && username == "游客") {
+                log.setInfo(username + "进入登录界面");
+            }
+            if (requestPath.endsWith(cart)) {
+                log.setInfo(username + "查看购物车");
+            }
             if (requestPath.endsWith(main)) {
                 log.setInfo(username + "游览主界面");
                 System.out.println("浏览");
@@ -96,19 +96,19 @@ public class LogFilter implements Filter {
 //            if (requestPath.endsWith(signoff)&&account != null) {
 //                log.setInfo(username + "退出登录");
 //            }
-            if (requestPath.endsWith(neworder)&&account != null) {
+            if (requestPath.endsWith(neworder) && account != null) {
                 log.setInfo(username + "创建订单");
             }
-            if (requestPath.endsWith(shipping)&&account != null) {
+            if (requestPath.endsWith(shipping) && account != null) {
                 log.setInfo(username + "修改地址");
             }
-            if (requestPath.endsWith(addtocart)&&account != null) {
+            if (requestPath.endsWith(addtocart) && account != null) {
                 log.setInfo(username + "将商品" + workingItemId + "加入购物车");
             }
-            if (requestPath.endsWith(update)&&account != null) {
+            if (requestPath.endsWith(update) && account != null) {
                 log.setInfo(username + "刷新购物车");
             }
-            if (requestPath.endsWith(remove)&&account != null) {
+            if (requestPath.endsWith(remove) && account != null) {
                 log.setInfo(username + "清除商品" + workingItemId);
             }
 //            if (requestPath.endsWith(edit)&&account != null) {
@@ -122,11 +122,11 @@ public class LogFilter implements Filter {
             if (productId != null) {
                 log.setInfo(username + "游览" + productId);
             }
-           if (order != null && requestPath.endsWith(confirm)&&account != null) {
+            if (order != null && requestPath.endsWith(confirm) && account != null) {
                 log.setInfo(username + "确认" + "订单");
             }
 
-            if (orderIdString != null&&account != null) {
+            if (orderIdString != null && account != null) {
                 log.setInfo(username + "游览" + "订单");
             }
             log.setValue(value);
@@ -134,5 +134,5 @@ public class LogFilter implements Filter {
             if (account == null && (requestPath.endsWith(neworder) || requestPath.endsWith(confirm))) {
                 req.getRequestDispatcher(SIGN_ON_FORM).forward(req, resp);
             }
-            filterChain.doFilter(Request, Response);}
+        filterChain.doFilter(Request, Response);}
     }

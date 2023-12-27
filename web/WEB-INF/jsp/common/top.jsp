@@ -9,6 +9,7 @@
 <head>
 <title>JPetStore Demo</title>
     <link rel="StyleSheet" href="css/mypetstore.css" type="text/css" media="screen" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -42,9 +43,18 @@
     <div id="Search">
         <div id="SearchContent">
             <form action="searchForm" method="post">
-                <input type="text" name="keyword" size="14">
+                <input type="text" name="keyword" size="14" id="keyword">
                 <input type="submit" value="Search">
             </form>
+            <div id="ProductAutoComplete">
+                <ul id="productAutoList">
+<%--                    <li class="productAutoItem">Amazon Parrot</li>--%>
+<%--                    <li class="productAutoItem">Labrador Retriever</li>--%>
+<%--                    <li class="productAutoItem">Golden Retriever</li>--%>
+<%--                    <li class="productAutoItem">Rattlesnake</li>--%>
+<%--                    <li class="productAutoItem">Tiger Shark</li>--%>
+                </ul>
+            </div>
         </div>
     </div>
 
