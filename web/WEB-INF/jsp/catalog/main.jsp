@@ -23,20 +23,22 @@
 
    <div id="MainImage">
       <div id="MainImageContent" >
-         <div id="mytitle" style="position: absolute;">
-      </div>
+         <div id="mytitle">
+            <ul id="productShowList">
+            </ul>
+         </div>
          <map name="estoremap">
-            <area alt="Birds" coords="72,2,280,250"
+            <area alt="BIRDS" coords="72,2,280,250"
                   href="categoryForm?categoryId=BIRDS" shape="RECT" />
-            <area alt="Fish" coords="2,180,72,250"
-                  href="categoryForm?categoryId=FISH" shape="RECT" />
-            <area alt="Dogs" coords="60,250,130,320"
+            <area alt="FISH" coords="2,180,72,250"
+                  href="categoryForm?categoryId=FISH" shape="RECT"  />
+            <area alt="DOGS" coords="60,250,130,320"
                   href="categoryForm?categoryId=DOGS" shape="RECT" />
-            <area alt="Reptiles" coords="140,270,210,340"
+            <area alt="REPTILES" coords="140,270,210,340"
                   href="categoryForm?categoryId=REPTILES" shape="RECT" />
-            <area alt="Cats" coords="225,240,295,310"
+            <area alt="CATS" coords="225,240,295,310"
                   href="categoryForm?categoryId=CATS" shape="RECT" />
-            <area alt="Birds" coords="280,180,350,250"
+            <area alt="BIRDS" coords="280,180,350,250"
                   href="categoryForm?categoryId=BIRDS" shape="RECT" />
          </map>
          <img height="355" src="images/splash.gif" align="middle"

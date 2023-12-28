@@ -102,6 +102,10 @@
         <servlet-name>ProductAutoCompleteServlet</servlet-name>
         <servlet-class>csu.web.mypetstore.web.servlet.ProductAutoCompleteServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProductShowServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.ProductShowServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MainFormServlet</servlet-name>
         <url-pattern>/mainForm</url-pattern>
@@ -203,5 +207,9 @@
     <servlet-mapping>
         <servlet-name>ProductAutoCompleteServlet</servlet-name>
         <url-pattern>/productAuto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProductShowServlet</servlet-name>
+        <url-pattern>/productShow</url-pattern>
     </servlet-mapping>
 </web-app>

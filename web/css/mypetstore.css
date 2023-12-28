@@ -5,7 +5,6 @@ body {
     font-size: 2ex;
     color: #333;
     background-color: #444;
-    width: 1080px;
 }
 
 pre {
@@ -275,7 +274,6 @@ body>#Banner {
     text-align:center;
     width: 50%;
 }
-
 #Catalog {
     padding: 1ex;
     background:inherit;
@@ -326,7 +324,7 @@ body>#Banner {
     background:#cccccc;
     position: relative;
     top: -30px;
-    left: 84px;
+    left: 130px;
     width: 128px;
     display: none;
 }
@@ -349,17 +347,23 @@ body>#Banner {
     cursor: pointer;
 }
 #mytitle {
-    width: 130px;
-    height: 80px;
-    position: absolute;
-    color: #000;
-    max-width: 160px;
-    font-size: 14px;
-    padding: 4px;
-    border: solid 1px #ced5d3;
-    border-radius:10px !important;
-    text-align: center;
-    line-height: 30px;
-    background-color: #fff;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+     width: 158px;
+     position: absolute;
+     color: #000;
+     max-width: 160px;
+     font-size: 14px;
+     padding: 4px;
+     border: solid 1px #ced5d3;
+     border-radius:10px !important;
+     text-align: center;
+     line-height: 30px;
+     background-color: #fff;
+     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+     display: none;
+ }
+#productShowList{
+    margin: 0;
+    padding: 0;
+    border: 1px solid #aaa;
 }
+
