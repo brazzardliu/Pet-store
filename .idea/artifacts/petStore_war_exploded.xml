@@ -10,6 +10,7 @@
           <element id="library" level="project" name="mysql-connector-j-8.0.31" />
           <element id="library" level="project" name="mysql-connector-j-8.1.0" />
           <element id="library" level="project" name="commons-io-2.15" />
+          <element id="library" level="project" name="fastjson-1.2.83" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="petStore/web/Web" />

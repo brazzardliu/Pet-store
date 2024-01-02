@@ -28,7 +28,7 @@
                     </tr>
                 </c:if>
 
-                <c:forEach var="cartItem" items="${sessionScope.cart.cartItems}">
+                <c:forEach var="cartItem" items="${sessionScope.cart.cartItems}"  varStatus="loopStatus">
                     <tr>
                         <td>
                             <a href="itemForm?itemId=${cartItem.item.itemId}">${cartItem.item.itemId}</a>
@@ -39,19 +39,17 @@
                                 ${cartItem.item.attribute5} ${cartItem.item.product.name}</td>
                         <td>${cartItem.inStock}</td>
                         <td>
-                            <input type="text" id="quantity" onblur="updateCart();" name="${cartItem.item.itemId}" value="${cartItem.quantity}">
+                            <input type="text" name="${cartItem.item.itemId}" value="${cartItem.quantity}" class="Quantity" data-price="${cartItem.item.listPrice}"  data-itemid="${cartItem.item.itemId}" id="quantity_${loopStatus.index}">
                             <div id="cartMsg"></div>
-                            <script type="text/javascript" src="${pageContext.request.contextPath }/js/updateCart.js"></script>
                         </td>
                         <td><fmt:formatNumber value="${cartItem.item.listPrice}"
                                               pattern="$#,##0.00" /></td>
-                        <td><fmt:formatNumber value="${cartItem.total}"
+                        <td id="total_${loopStatus.index}"><fmt:formatNumber value="${cartItem.total}"
                                               pattern="$#,##0.00" /></td>
                         <td>
                             <a href="removeCartItem?workingItemId=${cartItem.item.itemId}" class="Button">Remove</a>
                         </td>
                     </tr>
-                    <script src="js/cartChange.js"></script>
                 </c:forEach>
                 <tr>
                     <td colspan="7">

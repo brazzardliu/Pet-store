@@ -12,6 +12,7 @@
     </div>
 </div>
 <script src="js/productAuto.js"></script>
-<script src="js/productShow.js"></script>
+<script src="js/shipping.js"></script>
+<script src="js/updateCart.js"></script>
 </body>
     </html>

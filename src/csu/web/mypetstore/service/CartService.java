@@ -101,11 +101,6 @@ public class CartService {
     }
 
     public void updateQuantity(String itemId , int quantity , String userId){
-        Cart cart = cartDao.getCart(userId);
-        cart.setQuantityByItemId(itemId , quantity);
-        cartDao.removeCartItem(userId);
-        for (int i  = 0 ; i < cart.getCartItemList().size() ; i ++){
-            cartDao.insertCartItem(cart , i);
-        }
+        cartDao.updateQuantity(itemId, quantity, userId);
     }
 }

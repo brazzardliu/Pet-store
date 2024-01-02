@@ -106,6 +106,12 @@
         <servlet-name>ProductShowServlet</servlet-name>
         <servlet-class>csu.web.mypetstore.web.servlet.ProductShowServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateCartJSServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.UpdateCartJSServlet</servlet-class>
+    </servlet>
+
+
     <servlet-mapping>
         <servlet-name>MainFormServlet</servlet-name>
         <url-pattern>/mainForm</url-pattern>
@@ -212,4 +218,9 @@
         <servlet-name>ProductShowServlet</servlet-name>
         <url-pattern>/productShow</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateCartJSServlet</servlet-name>
+        <url-pattern>/updateCartJSServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>

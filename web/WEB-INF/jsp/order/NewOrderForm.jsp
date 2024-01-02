@@ -81,11 +81,47 @@
 
         <tr>
             <td colspan=2>
-                <input type="checkbox" name="shippingAddressRequired">
+                <input id="shippingAddressRequired" type="checkbox" name="shippingAddressRequired" checked="checked">
                 Ship to different address...</td>
         </tr>
 
-    </table>
+            <tr class="Shipping">
+                <th colspan=2>Shipping Address</th>
+            </tr>
+
+            <tr class="Shipping">
+                <td>First name:</td>
+                <td><input type="text" name="shipToFirstName" value="${sessionScope.order.shipToFirstName}"/></td>
+            </tr>
+            <tr class="Shipping">
+                <td>Last name:</td>
+                <td><input type="text" name="shipToLastName" value="${sessionScope.order.shipToLastName}"/></td>
+            </tr>
+            <tr class="Shipping">
+                <td>Address 1:</td>
+                <td><input type="text" name="shipAddress1" value="${sessionScope.order.shipAddress1}"/></td>
+            </tr>
+            <tr class="Shipping">
+                <td>Address 2:</td>
+                <td><input type="text" name="shipAddress2" value="${sessionScope.order.shipAddress2}"/></td>
+            </tr>
+            <tr class="Shipping">
+                <td>City:</td>
+                <td><input type="text" name="shipCity" value="${sessionScope.order.shipCity}"/></td>
+            </tr>
+            <tr class="Shipping">
+                <td>State:</td>
+                <td><input type="text" name="shipState" value="${sessionScope.order.shipState}"/></td>
+            </tr>
+            <tr class="Shipping">
+                <td>Zip:</td>
+                <td><input type="text" name="shipZip" value="${sessionScope.order.shipZip}"/></td>
+            </tr>
+            <tr class="Shipping">
+                <td>Country:</td>
+                <td><input type="text" name="shipCountry" value="${sessionScope.order.shipCountry}"/></td>
+            </tr>
+        </table>
         <input type="submit" name="newOrder" value="Continue">
 
 </form>
