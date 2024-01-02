@@ -110,6 +110,10 @@
         <servlet-name>UpdateCartJSServlet</servlet-name>
         <servlet-class>csu.web.mypetstore.web.servlet.UpdateCartJSServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TestServlet</servlet-name>
+        <servlet-class>csu.web.mypetstore.web.servlet.TestServlet</servlet-class>
+    </servlet>
 
 
     <servlet-mapping>
@@ -221,6 +225,10 @@
     <servlet-mapping>
         <servlet-name>UpdateCartJSServlet</servlet-name>
         <url-pattern>/updateCartJSServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TestServlet</servlet-name>
+        <url-pattern>/testServlet</url-pattern>
     </servlet-mapping>
 
 </web-app>

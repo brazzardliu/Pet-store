@@ -7,19 +7,15 @@
             <p> <font color="red">${requestScope.registerMsg} </font> </p>
         </c:if>
         <p>
-            Username:<input type="text" name="username"> <br />
+            Username:<input type="text" name="username" id="username"> <br />
+            <label id="label1"></label><br/>
             Password:<input type="password" name="password"> <br />
             ValidationCode:<input type="text" name="validationCode" style="width: 50px;height: 20px"/>
             <img src="ValidateCodeServlet"  id="validationCode" ><br/>
         </p>
-        <script>
-            $('#validationCode').click(function () {
-                $(this).attr('src','csu/web/mypetstore/web/servlet/validateCodeServlet.java?time='+ new Date().getTime());
-            });
-        </script>
         <input type="submit" value="click">
     </form>
 
 </div>
-
+<script src="js/signon.js"></script>
 <%@ include file="../common/bottom.jsp"%>

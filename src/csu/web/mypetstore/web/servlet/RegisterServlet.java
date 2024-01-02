@@ -2,9 +2,14 @@ package csu.web.mypetstore.web.servlet;
 
 import csu.web.mypetstore.domain.Account;
 import csu.web.mypetstore.domain.Product;
+import csu.web.mypetstore.persistence.DBUtil;
 import csu.web.mypetstore.service.AccountService;
 import csu.web.mypetstore.service.CatalogService;
 
+import java.io.IOException;
+import java.sql.*;
+import java.util.HashMap;
+import java.util.Map;
 import javax.jms.Session;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,7 +22,6 @@ import java.io.IOException;
 import java.util.Random;
 import javax.imageio.ImageIO;
 import java.util.List;
-
 public class RegisterServlet extends HttpServlet {
 
     private static final String Register_Form = "/WEB-INF/jsp/account/register.jsp";
@@ -33,43 +37,43 @@ public class RegisterServlet extends HttpServlet {
 
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doPost(req, resp);
+    protected void doGet(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
+        doPost(req, response);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
         this.username = req.getParameter("username");
         this.password = req.getParameter("password");
         this.validationCode = req.getParameter("validationCode");
         HttpSession session = req.getSession();
         String validation_code = (String) session.getAttribute("authCode");
-        session.setAttribute("username" ,username );
-        session.setAttribute("password",password);
+        session.setAttribute("username", username);
+        session.setAttribute("password", password);
         if (validationCode.equalsIgnoreCase(validation_code)) {
-        if (!validate()) {
-            req.setAttribute("registerMsg", this.msg);
-            req.getRequestDispatcher(Register_Form).forward(req, resp);
-        } else {
-            req.getRequestDispatcher(INFORMATION_Form).forward(req, resp);
+            if (!validate()) {
+                req.setAttribute("registerMsg", this.msg);
+                req.getRequestDispatcher(Register_Form).forward(req, response);
+            } else {
+                req.getRequestDispatcher(INFORMATION_Form).forward(req, response);
+            }
+
         }
     }
 
-
-    }
-        private boolean validate () {
-            if (this.username == null || this.username.equals("")) {
-                this.msg = "用户名不能为空";
-                return false;
-            }
-            if (this.password == null || this.password.equals("")) {
-                this.msg = "密码不能为空";
-                return false;
-            }
-            if (this.email1 == null || this.email1.equals("")) {
-                this.msg = "邮箱不能为空";
-            }
-            return true;
+    private boolean validate() {
+        if (this.username == null || this.username.equals("")) {
+            this.msg = "用户名不能为空";
+            return false;
         }
-
+        if (this.password == null || this.password.equals("")) {
+            this.msg = "密码不能为空";
+            return false;
+        }
+        if (this.email1 == null || this.email1.equals("")) {
+            this.msg = "邮箱不能为空";
+        }
+        return true;
     }
+
+}
